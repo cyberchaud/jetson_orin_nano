@@ -35,9 +35,6 @@ sudo docker run -it --rm \
   --name jetson-pose \
   nvcr.io/nvidia/l4t-jetpack:r36.4.0 bash
 ```
-
-> Fallback: replace the last line with `dustynv/l4t-pytorch:r36.4.0` if NGC auth is an issue.
-
 ### 3. Inside the container
 
 #### 3.1 Update and install pip
@@ -45,21 +42,7 @@ sudo docker run -it --rm \
 apt-get update
 apt-get install -y python3-pip
 ```
-
-#### 3.2 Install Jetson-compatible PyTorch (skip if using Dusty’s PyTorch image)
-```bash
-python3 -m pip install --upgrade pip
-python3 -m pip install torch==2.3.0+nv23.06 torchvision==0.18.0+nv23.06 \
-  --extra-index-url https://pypi.ngc.nvidia.com
-```
-Quick check:
-```bash
-python3 - <<'PY'
-import torch; print(torch.__version__, "CUDA:", torch.cuda.is_available())
-PY
-```
-
-#### 3.3 Install Ultralytics
+#### 3.2 Install Ultralytics
 ```bash
 python3 -m pip install ultralytics
 ```
@@ -126,7 +109,6 @@ export QT_QPA_PLATFORM=xcb
 
 ## 📂 Where to Find Results
 - Inside container: `/workspace/runs/pose/predict*`
-- On host (if mounted): `~/yolo_results/pose/predict*`
 
 ---
 
