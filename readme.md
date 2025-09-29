@@ -67,10 +67,12 @@ Install GUI libraries inside the container:
 ```bash
 apt-get update
 apt-get install -y \
+  python3-opencv \
   libgl1 libglib2.0-0 libgtk-3-0 \
   libxkbcommon-x11-0 libxrender1 libxrandr2 libxi6 libxfixes3 \
   libxcb1 libxcb-icccm4 libxcb-image0 libxcb-keysyms1 \
-  libxcb-render-util0 libxcb-shape0 libxcb-xinerama0 qtwayland5
+  libxcb-render-util0 libxcb-shape0 libxcb-xinerama0 libxcb-xfixes0 \
+  libqt5gui5 qtwayland5
 ```
 Run with preview:
 ```bash
