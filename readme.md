@@ -49,7 +49,7 @@ python3 -m pip install ultralytics
 
 ---
 
-### 4. Run pose estimation (headless save)
+### 4. Run pose estimation with preview screen
 ```bash
 yolo pose predict model=yolov8n-pose.pt source=0 show=True save=True imgsz=480 conf=0.4 iou=0.6
 ```
@@ -57,31 +57,6 @@ yolo pose predict model=yolov8n-pose.pt source=0 show=True save=True imgsz=480 c
 - If you mount `~/yolo_results:/workspace/runs` when starting the container, results appear on the host at `~/yolo_results/pose/predict*`.
 
 Stop with **Ctrl+C**.
-
----
-
-### 5. (Optional) Live preview window
-Install GUI libraries inside the container:
-```bash
-apt-get update
-apt-get install -y \
-  python3-opencv \
-  libgl1 libglib2.0-0 libgtk-3-0 \
-  libxkbcommon-x11-0 libxrender1 libxrandr2 libxi6 libxfixes3 \
-  libxcb1 libxcb-icccm4 libxcb-image0 libxcb-keysyms1 \
-  libxcb-render-util0 libxcb-shape0 libxcb-xinerama0 libxcb-xfixes0 \
-  libqt5gui5 qtwayland5
-```
-Run with preview:
-```bash
-python3 -m ultralytics pose predict \
-  model=yolov8n-pose.pt source=0 \
-  show=True save=True imgsz=640 conf=0.4 iou=0.6
-```
-If window issues persist:
-```bash
-export QT_QPA_PLATFORM=xcb
-```
 
 ---
 
