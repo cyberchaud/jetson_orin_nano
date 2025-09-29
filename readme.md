@@ -51,9 +51,7 @@ python3 -m pip install ultralytics
 
 ### 4. Run pose estimation (headless save)
 ```bash
-python3 -m ultralytics pose predict \
-  model=yolov8n-pose.pt source=0 \
-  show=False save=True imgsz=640 conf=0.4 iou=0.6
+yolo pose predict model=yolov8n-pose.pt source=0 show=True save=True imgsz=480 conf=0.4 iou=0.6
 ```
 - Results are saved under `/workspace/runs/pose/predict*` inside the container.
 - If you mount `~/yolo_results:/workspace/runs` when starting the container, results appear on the host at `~/yolo_results/pose/predict*`.
